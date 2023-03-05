@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uidb/src/utils/theme/widget_themes/elevated_button_theme.dart';
+import 'package:uidb/src/utils/theme/widget_themes/outlined_button_theme.dart';
 import 'package:uidb/src/utils/theme/widget_themes/text_theme.dart';
 
 class bpdAppTheme {
@@ -11,17 +13,15 @@ class bpdAppTheme {
     primarySwatch: Colors.green,
     brightness: Brightness.light,
     textTheme: bpdTextTheme.lightTextTheme,
-    appBarTheme: AppBarTheme(),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(),
-    elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom()),
+    outlinedButtonTheme: bpdOutlinedButtonTheme.lightOutlinedButtonTheme,
+    elevatedButtonTheme: bpdElevatedButtonTheme.lightElevatedButtonTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.green,
     brightness: Brightness.dark,
     textTheme: bpdTextTheme.darkTextTheme,
-    appBarTheme: AppBarTheme(),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(),
-    elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom()),
+    outlinedButtonTheme: bpdOutlinedButtonTheme.darkOutlinedButtonTheme,
+    elevatedButtonTheme: bpdElevatedButtonTheme.darkElevatedButtonTheme,
   );
 }

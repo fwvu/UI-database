@@ -35,8 +35,8 @@ class SplashScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(bpdAppName, style: Theme.of(context).textTheme.headlineMedium,),
-                    Text(bpdTagLine, style: Theme.of(context).textTheme.titleSmall,),
+                    Text(bpdAppName, style: Theme.of(context).textTheme.headlineSmall,),
+                    Text(bpdTagLine, style: Theme.of(context).textTheme.headlineMedium,),
                   ],
                 ),
               ),
