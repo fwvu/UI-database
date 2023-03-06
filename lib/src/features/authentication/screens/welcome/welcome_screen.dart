@@ -1,47 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:uidb/src/common_widgets/fade_in_animation/animation_design.dart';
+import 'package:uidb/src/common_widgets/fade_in_animation/fade_in_animation_model.dart';
 import 'package:uidb/src/constants/colors.dart';
 import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
 import 'package:uidb/src/constants/text_strings.dart';
+import '../../../../common_widgets/fade_in_animation/fade_in_animation_controller.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(FadeInAnimationController());
+    controller.startAnimation();
+
     var mediaQuery = MediaQuery.of(context);
     var height = mediaQuery.size.height;
     var brightness = mediaQuery.platformBrightness;
     final isDarkMode = brightness == Brightness.dark;
+
     return Scaffold(
       backgroundColor: isDarkMode ? bpdSecondaryColor : bpdPrimaryColor,
-      body: Container(
-        padding: EdgeInsets.all(bpdDefaultSize),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image(image: AssetImage(bpdWelcomeImage), height: height* 0.6,),
-            Column(
-              children: [
-                Text(bpdWelcomeTitle, style: Theme.of(context).textTheme.displayMedium,),
-                Text(bpdWelcomeSubTitle, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center,),
-              ],
+      body: Stack(
+        children: [
+          bpdFadeInAnimation(
+            durationInMs: 1200,
+            animate: bpdAnimatePosition(
+              bottomAfter: 0,
+              bottomBefore: -100,
+              leftBefore: 0,
+              leftAfter: 0,
+              topBefore: 0,
+              topAfter: 0,
+              rightAfter: 0,
+              rightBefore: 0,
             ),
-            Row(
-            children: [
-              Expanded(
-                  child: OutlinedButton(
-                      onPressed: () {},
-                      child: Text(bpdLogin.toUpperCase()))),
-              SizedBox(width: 10.0,),
-              Expanded(
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(bpdSignup.toUpperCase()))),
-            ],
-            )
-          ],
-        ),
+            child: Container(
+              padding: EdgeInsets.all(bpdDefaultSize),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image(image: AssetImage(bpdWelcomeImage), height: height* 0.6,),
+                  Column(
+                    children: [
+                      Text(bpdWelcomeTitle, style: Theme.of(context).textTheme.displayMedium,),
+                      Text(bpdWelcomeSubTitle, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center,),
+                    ],
+                  ),
+                  Row(
+                  children: [
+                    Expanded(
+                        child: OutlinedButton(
+                            onPressed: () {},
+                            child: Text(bpdLogin.toUpperCase()))),
+                    SizedBox(width: 10.0,),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(bpdSignup.toUpperCase()))),
+                  ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       )
     );
   }

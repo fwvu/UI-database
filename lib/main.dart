@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: bpdAppTheme.lightTheme,
       darkTheme: bpdAppTheme.darkTheme,
       themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
