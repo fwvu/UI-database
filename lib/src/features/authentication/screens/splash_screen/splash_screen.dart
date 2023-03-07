@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 
 
 class SplashScreen extends StatelessWidget {
-  SplashScreen({Key? key}) : super(key: key);
-
+  const SplashScreen({Key? key}) : super(key: key);
 
 
   @override
