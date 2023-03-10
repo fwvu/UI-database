@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:uidb/src/features/authentication/screens/login/login_test_screen.dart';
+import 'package:uidb/src/features/authentication/screens/signup/signup_screen.dart';
 import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/text_strings.dart';
 
 
-class SignupFooterWidget extends StatelessWidget {
-  const SignupFooterWidget({
+class LoginFooterWidget extends StatelessWidget {
+  const LoginFooterWidget({
     super.key,
   });
 
@@ -26,15 +25,15 @@ class SignupFooterWidget extends StatelessWidget {
         TextButton(
           onPressed: (){
             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const LoginScreen())
+                context,
+                MaterialPageRoute(builder: (context) => const SignupScreen())
             );
           },
           child: Text.rich(
             TextSpan(
                 children: [
-                  TextSpan(text: bpdAlreadyHaveAnAccount, style: Theme.of(context).textTheme.bodyMedium),
-                  TextSpan(text: bpdLogin.toUpperCase(),)
+                  TextSpan(text: bpdNotHaveAnAccount, style: Theme.of(context).textTheme.bodyMedium),
+                  TextSpan(text: bpdSignup.toUpperCase(),)
                 ]
             ),
           ),
