@@ -51,3 +51,4 @@ const String bpdSignupWithGoogle = "Sign up with Google";
 const String bpdAlreadyHaveAnAccount = "Already have an account ? ";
 const String bpdNotHaveAnAccount = "Don't have an account ? ";
 const String bpdForgetPassword = 'Forget Password?';
+const String bpdLogout = "Click here to Logout";

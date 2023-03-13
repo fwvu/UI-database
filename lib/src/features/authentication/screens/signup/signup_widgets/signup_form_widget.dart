@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:uidb/src/features/authentication/controllers/signup_controllers.dart';
+import 'package:uidb/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
-
 
 class SignupFormWidget extends StatelessWidget {
   const SignupFormWidget({
@@ -13,10 +13,10 @@ class SignupFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller= Get.put(SignUpController());
-    final _formkey= GlobalKey<FormState>();
+    final controller = Get.put(SignUpController());
+    final _formkey = GlobalKey<FormState>();
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: bpdFormHeight-10),
+      padding: const EdgeInsets.symmetric(vertical: bpdFormHeight - 10),
       child: Form(
         key: _formkey,
         child: Column(
@@ -29,7 +29,7 @@ class SignupFormWidget extends StatelessWidget {
                 prefixIcon: Icon(Icons.person),
               ),
             ),
-            const SizedBox(height: bpdFormHeight -20),
+            const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               controller: controller.email,
               decoration: const InputDecoration(
@@ -50,7 +50,7 @@ class SignupFormWidget extends StatelessWidget {
                 print(phone.completeNumber);
               },
             ),
-            const SizedBox(height: bpdFormHeight -20),
+            const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               obscureText: true,
               controller: controller.password,
@@ -58,22 +58,26 @@ class SignupFormWidget extends StatelessWidget {
                 label: Text(bpdPassword),
                 prefixIcon: Icon(Icons.password),
                 suffixIcon: IconButton(
-                    onPressed: null,
-                    icon: Icon(Icons.remove_red_eye_sharp)
-                ),
+                    onPressed: null, icon: Icon(Icons.remove_red_eye_sharp)),
               ),
             ),
-            const SizedBox(height: bpdFormHeight -20),
+            const SizedBox(height: bpdFormHeight - 20),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: (){
-                    if(_formkey.currentState!.validate()){
-                      SignUpController.instance.registerUser(controller.email.text.trim(),controller.password.text.trim());
+                  onPressed: () {
+                    if (_formkey.currentState!.validate()) {
+                      //SignUpController.instance.registerUser(
+                         // controller.email.text.trim(),
+                          //controller.password.text.trim());
+
+                      SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+                      Get.to(() => const OTPScreen());
                     }
                   },
-                  child: Text(bpdSignup.toUpperCase(),)
-              ),
+                  child: Text(
+                    bpdSignup.toUpperCase(),
+                  )),
             ),
           ],
         ),
@@ -81,4 +85,3 @@ class SignupFormWidget extends StatelessWidget {
     );
   }
 }
-

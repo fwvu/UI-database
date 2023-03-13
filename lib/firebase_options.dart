@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1048294599585',
     projectId: 'food-for-dirt-testbed',
     storageBucket: 'food-for-dirt-testbed.appspot.com',
+    androidClientId: '1048294599585-mqfq5dbacad6sblakkt72dmohgbmr4ie.apps.googleusercontent.com',
     iosClientId: '1048294599585-pej38al3bh9rbd5vfq2nqs88k0su3h2t.apps.googleusercontent.com',
     iosBundleId: 'com.vu.ffd.uidb',
   );
