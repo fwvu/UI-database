@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:uidb/src/features/authentication/controllers/signup_controllers.dart';
-import 'package:uidb/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
+import 'package:uidb/src/features/authentication/model/user_model.dart';
+import 'package:uidb/src/features/repository/Dashboard/dashboard.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
@@ -23,7 +24,7 @@ class SignupFormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              controller: controller.fullname,
+              controller: controller.fullName,
               decoration: const InputDecoration(
                 label: Text(bpdFullName),
                 prefixIcon: Icon(Icons.person),
@@ -67,12 +68,17 @@ class SignupFormWidget extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
-                      //SignUpController.instance.registerUser(
-                         // controller.email.text.trim(),
-                          //controller.password.text.trim());
+                      // SignUpController.instance.registerUser(
+                          // controller.email.text.trim(),
+                          // controller.password.text.trim());
 
-                      SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
-                      Get.to(() => const OTPScreen());
+                      final user= UserModel(
+                          email: controller.email.text.trim(),
+                          password: controller.password.text.trim(),
+                          fullName: controller.fullName.text.trim(),
+                          phoneNo: controller.phoneNo.text.trim(),
+                      );
+                      SignUpController.instance.createUser(user);
                     }
                   },
                   child: Text(
