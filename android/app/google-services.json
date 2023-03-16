@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1048294599585",
+    "project_id": "food-for-dirt-testbed",
+    "storage_bucket": "food-for-dirt-testbed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048294599585:android:be4ad8fd374be94f17f9e0",
+        "android_client_info": {
+          "package_name": "com.vu.ffd.uidb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048294599585-mqfq5dbacad6sblakkt72dmohgbmr4ie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vu.ffd.uidb",
+            "certificate_hash": "d0d72c122ff04a336143f125e5c92e24597bba2a"
+          }
+        },
+        {
+          "client_id": "1048294599585-11j37kgk0o3dk0oohhig4fh9f2h7b1hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzKudHWvdj3hUDXSFEaxQn5AoGhVcvICg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048294599585-11j37kgk0o3dk0oohhig4fh9f2h7b1hg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048294599585-pej38al3bh9rbd5vfq2nqs88k0su3h2t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vu.ffd.uidb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

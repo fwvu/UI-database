@@ -11,3 +11,5 @@ const String bpdWelcomeImage = "assets/images/welcome_images/welcome_screen_imag
 // -- Google Signup image
 const String bpdGoogleSignupImage = "assets/images/google_signup_image.png";
 
+// -- Forget Password image
+const String bpdForgetPasswordImage = "assets/images/forgot_password_images/padlock.png";

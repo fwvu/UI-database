@@ -6,6 +6,7 @@ import 'package:uidb/src/constants/colors.dart';
 import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
 import 'package:uidb/src/constants/text_strings.dart';
+import 'package:uidb/src/features/authentication/screens/login/login_test_screen.dart';
 import 'package:uidb/src/features/authentication/screens/signup/signup_screen.dart';
 import '../../../../common_widgets/fade_in_animation/fade_in_animation_controller.dart';
 
@@ -55,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                         child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () => Get.to(()=> const LoginScreen()),
                             child: Text(bpdLogin.toUpperCase()))),
                     SizedBox(width: 10.0,),
                     Expanded(
