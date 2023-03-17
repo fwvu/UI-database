@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/model/user_model.dart';
+import 'package:uidb/src/features/repository/Dashboard/dashboard.dart';
 import 'package:uidb/src/features/repository/user_repository/user_repository.dart';
 
 import '../../repository/authentication_repository/authentication_repository.dart';
@@ -23,13 +24,16 @@ class SignUpController extends GetxController {
       Get.showSnackbar(GetSnackBar(message: error.toString()));
     }
   }
-    Future <void> createUser (UserModel user) async {
-      await userRepo.createUser(user);
-      phoneAuthentication(user.phoneNo);
-      Get.to(() => const OTPScreen());
-    }
 
-    void phoneAuthentication(String phoneNo) {
-      AuthenticationRepository.instance.phoneAuthentication(phoneNo);
-    }
+  Future<void> createUser(UserModel user) async {
+    await userRepo.createUser(user);
+    phoneAuthentication(user.phoneNo);
+    Get.to(() => const OTPScreen());
+    //registerUser(user.email, user.password);
+    //Get.to(() => const Dashboard());
   }
+
+  void phoneAuthentication(String phoneNo) {
+    AuthenticationRepository.instance.phoneAuthentication(phoneNo);
+  }
+}

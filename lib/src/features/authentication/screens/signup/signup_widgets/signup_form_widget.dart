@@ -14,8 +14,10 @@ class SignupFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final controller = Get.put(SignUpController());
     final _formkey = GlobalKey<FormState>();
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: bpdFormHeight - 10),
       child: Form(
@@ -38,8 +40,18 @@ class SignupFormWidget extends StatelessWidget {
                 prefixIcon: Icon(Icons.email),
               ),
             ),
-            IntlPhoneField(
+            const SizedBox(height: bpdFormHeight - 20),
+            TextFormField(
               controller: controller.phoneNo,
+              decoration: const InputDecoration(
+                label: Text(bpdPhone),
+                prefixIcon: Icon(Icons.phone),
+              ),
+            ),
+
+          /*  IntlPhoneField(
+              controller: controller.phoneNo,
+              disableLengthCheck: true,
               decoration: InputDecoration(
                 labelText: 'Phone Number',
                 border: OutlineInputBorder(
@@ -50,7 +62,8 @@ class SignupFormWidget extends StatelessWidget {
               onChanged: (phone) {
                 print(phone.completeNumber);
               },
-            ),
+            ), */
+
             const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               obscureText: true,
@@ -68,15 +81,19 @@ class SignupFormWidget extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
-                      // SignUpController.instance.registerUser(
-                          // controller.email.text.trim(),
-                          // controller.password.text.trim());
 
-                      final user= UserModel(
-                          email: controller.email.text.trim(),
-                          password: controller.password.text.trim(),
-                          fullName: controller.fullName.text.trim(),
-                          phoneNo: controller.phoneNo.text.trim(),
+                      // email and password signup
+                      //SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
+
+                      // phone authentication
+                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+
+                      // Get User info and pass it to controller to place in firestore
+                      final user = UserModel(
+                        email: controller.email.text.trim(),
+                        password: controller.password.text.trim(),
+                        fullName: controller.fullName.text.trim(),
+                        phoneNo: controller.phoneNo.text.trim(),
                       );
                       SignUpController.instance.createUser(user);
                     }

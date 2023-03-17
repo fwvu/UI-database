@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:uidb/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:uidb/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:uidb/src/features/repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 import '../Dashboard/dashboard.dart';
@@ -24,7 +25,8 @@ class AuthenticationRepository extends GetxController {
 
   _setInitialScreen(User? user) {
     user == null
-        ? Get.offAll(() => const WelcomeScreen())
+        //? Get.offAll(() => const WelcomeScreen())
+        ? Get.offAll(() => const SplashScreen())
         : Get.offAll(() => const Dashboard());
   }
 
