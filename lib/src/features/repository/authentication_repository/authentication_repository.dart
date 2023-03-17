@@ -23,13 +23,22 @@ class AuthenticationRepository extends GetxController {
     ever(firebaseUser, _setInitialScreen);
   }
 
-  _setInitialScreen(User? user) {
+  /* _setInitialScreen(User? user) {
     user == null
-        //? Get.offAll(() => const WelcomeScreen())
-        ? Get.offAll(() => const SplashScreen())
+        ? Get.offAll(() => const WelcomeScreen())
+        //? Get.offAll(() => const SplashScreen())
         : Get.offAll(() => const Dashboard());
-  }
+  }*/
 
+  _setInitialScreen(User? user) {
+    if (user == null) {
+      print("login page");
+
+      Get.offAll(() => const SplashScreen());
+    } else {
+      Get.offAll(() => const Dashboard());
+    }
+  }
   Future<void> phoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(
         phoneNumber: phoneNo,

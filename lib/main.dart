@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uidb/firebase_options.dart';
 import 'package:uidb/src/features/authentication/screens/splash_screen/splash_screen.dart';
+import 'package:uidb/src/features/repository/Dashboard/dashboard.dart';
 import 'package:uidb/src/features/repository/authentication_repository/authentication_repository.dart';
 import 'package:uidb/src/utils/theme/theme.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
       theme: bpdAppTheme.lightTheme,
       darkTheme: bpdAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
+      //home: const Dashboard(),
       home: const SplashScreen(),
+      //home: const CircularProgressIndicator(),
     );
   }
 }
