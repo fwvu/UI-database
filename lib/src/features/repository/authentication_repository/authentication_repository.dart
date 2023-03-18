@@ -31,12 +31,12 @@ class AuthenticationRepository extends GetxController {
   }*/
 
   _setInitialScreen(User? user) {
-    if (user == null) {
-      print("login page");
-
-      Get.offAll(() => const SplashScreen());
-    } else {
+    if (user != null) {
+      print("idiot");
       Get.offAll(() => const Dashboard());
+    } else {
+      print("u suck");
+      Get.offAll(() => const WelcomeScreen());
     }
   }
   Future<void> phoneAuthentication(String phoneNo) async {
