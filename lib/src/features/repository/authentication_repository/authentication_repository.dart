@@ -36,7 +36,8 @@ class AuthenticationRepository extends GetxController {
       Get.offAll(() => const Dashboard());
     } else {
       print("u suck");
-      Get.offAll(() => const WelcomeScreen());
+      //Get.offAll(() => const WelcomeScreen());
+      Get.offAll(() => const SplashScreen());
     }
   }
   Future<void> phoneAuthentication(String phoneNo) async {
