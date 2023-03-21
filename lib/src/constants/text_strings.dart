@@ -40,9 +40,6 @@ const String bpdOtpSubTitle = "Verification";
 const String bpdOtpMessage = "Enter Verification code sent at:";
 
 
-
-
-
 const String bpdFullName = "Name";
 const String bpdEmail = "Email";
 const String bpdPassword = "Password";
@@ -52,3 +49,9 @@ const String bpdAlreadyHaveAnAccount = "Already have an account ? ";
 const String bpdNotHaveAnAccount = "Don't have an account ? ";
 const String bpdForgetPassword = 'Forget Password?';
 const String bpdLogout = "Click here to Logout";
+
+// -- Edit Profile
+const String bpdProfileHeading = "Replace these";
+const String bpdProfileSubHeading = "Profile subheading";
+const String bpdProfileEdit = "Edit Profile";
+const String bpdProfileMenu = "Settings";

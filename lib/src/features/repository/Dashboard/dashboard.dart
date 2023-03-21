@@ -1,10 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:uidb/src/constants/colors.dart';
 import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
 import 'package:uidb/src/constants/text_strings.dart';
 import 'package:uidb/src/features/repository/authentication_repository/authentication_repository.dart';
+import 'package:uidb/src/features/repository/profile/profile_screen.dart';
 
 
 class Dashboard extends StatelessWidget {
@@ -14,17 +17,13 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.menu, color: Colors.black,),
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu), color: Colors.black,),
         title: Text(bpdAppName, style: Theme.of(context).textTheme.headlineSmall),
         centerTitle: true,
         elevation: 0,
         backgroundColor: bpdPrimaryColor,
         actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 20, top: 7),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: bpdCardBgColor),
-            child: IconButton(onPressed: (){}, icon: const Image(image: AssetImage(bpdSplashImage))),
-          )
+           IconButton(onPressed: ()=> Get.to(ProfileScreen()), icon: const Icon(Icons.person)),
         ],
       ),
       body: SingleChildScrollView(
@@ -49,10 +48,8 @@ class Dashboard extends StatelessWidget {
                     child: Text(bpdLogout.toUpperCase(),)
                 ),
               ),
-
             ],
           ),
-
         ),
       ),
     );

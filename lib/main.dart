@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       //home: const Dashboard(),
       //home: const SplashScreen(),
       //home: const WelcomeScreen(),
-      home: const CircularProgressIndicator(),
+      home: const Scaffold(body: Center(child: CircularProgressIndicator())),
     );
   }
 }
