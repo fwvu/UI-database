@@ -5,20 +5,22 @@ class bpdTextFormFieldTheme {
   bpdTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme =
-      const InputDecorationTheme(
-          border: OutlineInputBorder(),
+      InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
           prefixIconColor: bpdSecondaryColor,
-          floatingLabelStyle: TextStyle(color: bpdSecondaryColor),
+          floatingLabelStyle: const TextStyle(color: bpdSecondaryColor),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 2.0, color: bpdSecondaryColor),
+            borderRadius: BorderRadius.circular(100),
+            borderSide: const BorderSide(width: 2.0, color: bpdSecondaryColor),
           ));
 
   static InputDecorationTheme darkInputDecorationTheme =
-      const InputDecorationTheme(
-          border: OutlineInputBorder(),
+      InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
           prefixIconColor: bpdPrimaryColor,
-          floatingLabelStyle: TextStyle(color: bpdPrimaryColor),
+          floatingLabelStyle: const TextStyle(color: bpdPrimaryColor),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 2.0, color: bpdPrimaryColor),
+              borderRadius: BorderRadius.circular(100),
+            borderSide: const BorderSide(width: 2.0, color: bpdPrimaryColor),
           ));
 }

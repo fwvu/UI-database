@@ -23,7 +23,7 @@ class Dashboard extends StatelessWidget {
         elevation: 0,
         backgroundColor: bpdPrimaryColor,
         actions: [
-           IconButton(onPressed: ()=> Get.to(ProfileScreen()), icon: const Icon(Icons.person)),
+           IconButton(onPressed: ()=> Get.to(()=> const ProfileScreen()), icon: const Icon(Icons.person)),
         ],
       ),
       body: SingleChildScrollView(

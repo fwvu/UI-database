@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
+import 'package:uidb/src/features/repository/profile/edit_profile_screen.dart';
 import 'package:uidb/src/features/repository/profile/profile_widgets/profile_menu.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_strings.dart';
@@ -45,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: () => Get.to(() => const EditProfileScreen()),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: bpdPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
                   child: const Text(bpdProfileEdit, style: TextStyle(color: bpdDarkColor),),

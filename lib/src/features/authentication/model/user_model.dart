@@ -28,7 +28,7 @@ const UserModel ({
       "Password": password,
     };
   }
-/*
+
   factory UserModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
     return UserModel(
@@ -40,7 +40,7 @@ const UserModel ({
     );
   }
 
- */
+
 
 
 }
