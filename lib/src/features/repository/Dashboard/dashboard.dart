@@ -11,7 +11,8 @@ import 'package:uidb/src/features/repository/profile/profile_screen.dart';
 
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  String? email;
+  Dashboard({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class Dashboard extends StatelessWidget {
             children: [
               SizedBox(height: 20.0),
               Text("Welcome"),
-              Text("Use get to display name here"),
+              Text(email!),
               SizedBox(height: 20.0),
               Image(image: AssetImage(bpdSplashImage)),
               Text("make this QR image"),

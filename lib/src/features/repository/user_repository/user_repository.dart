@@ -34,7 +34,7 @@ class UserRepository extends GetxController {
     return userData;
   }
 
-
+  /// Remove this. only add to admin app
   Future<List<UserModel>> allUser() async {
     final snapshot = await _db.collection("Users").get();
     final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();

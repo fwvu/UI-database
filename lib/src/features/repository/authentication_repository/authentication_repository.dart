@@ -31,13 +31,12 @@ class AuthenticationRepository extends GetxController {
   }*/
 
   _setInitialScreen(User? user) {
-    if (user != null) {
+    if (user == null) {
       print("idiot");
-      Get.offAll(() => const Dashboard());
+      Get.offAll(() => const SplashScreen());
     } else {
       print("u suck");
-      //Get.offAll(() => const WelcomeScreen());
-      Get.offAll(() => const SplashScreen());
+      Get.offAll(() => Dashboard(email:user.email));
     }
   }
   Future<void> phoneAuthentication(String phoneNo) async {
@@ -73,7 +72,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       firebaseUser.value != null
-          ? Get.offAll(() => const Dashboard())
+          ? Get.offAll(() => Dashboard(email:email))
           : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);

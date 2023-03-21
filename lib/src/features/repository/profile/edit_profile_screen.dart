@@ -13,7 +13,7 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final contoller = Get.put(ProfileController());
+    final controller = Get.put(ProfileController());
 
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +28,7 @@ class EditProfileScreen extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(bpdDefaultSize),
           child: FutureBuilder(
-            future: contoller.getUserData(),
+            future: controller.getUserData(),
             builder: (context, snapshot){
               if(snapshot.connectionState == ConnectionState.done){
                 if(snapshot.hasData){
