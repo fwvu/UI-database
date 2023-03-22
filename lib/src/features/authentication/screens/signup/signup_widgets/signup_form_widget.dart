@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:uidb/src/features/authentication/controllers/signup_controllers.dart';
 import 'package:uidb/src/features/authentication/model/user_model.dart';
-import 'package:uidb/src/features/repository/Dashboard/dashboard.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 

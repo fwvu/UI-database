@@ -39,7 +39,7 @@ const String bpdOtpTitle = "CO\nDE";
 const String bpdOtpSubTitle = "Verification";
 const String bpdOtpMessage = "Enter Verification code sent at:";
 
-
+// -- Sign up screen text
 const String bpdFullName = "Name";
 const String bpdEmail = "Email";
 const String bpdPassword = "Password";
@@ -50,8 +50,15 @@ const String bpdNotHaveAnAccount = "Don't have an account ? ";
 const String bpdForgetPassword = 'Forget Password?';
 const String bpdLogout = "Click here to Logout";
 
-// -- Edit Profile
+// -- Profile and Edit Profile screens
 const String bpdProfileHeading = "Replace these";
 const String bpdProfileSubHeading = "Profile subheading";
 const String bpdProfileEdit = "Edit Profile";
 const String bpdProfileMenu = "Settings";
+const String bpdProfileUpdate = "Update profile";
+
+
+// -- Dashboard
+const String bpdDashboardHeading = "Welcome";
+const String bpdQrImage = "Your personal QR code";
+const String bpdUserStats = "User Statistics";

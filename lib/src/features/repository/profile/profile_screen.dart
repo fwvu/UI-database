@@ -7,6 +7,7 @@ import 'package:uidb/src/features/repository/profile/edit_profile_screen.dart';
 import 'package:uidb/src/features/repository/profile/profile_widgets/profile_menu.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/text_strings.dart';
+import '../authentication_repository/authentication_repository.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -62,7 +63,9 @@ class ProfileScreen extends StatelessWidget {
               ProfileMenuWidget(title: "Billing", icon: Icons.wallet, onPress: () {} ),
               const Divider(),
               const SizedBox(height: 10),
-              ProfileMenuWidget(title: "Logout", icon: Icons.logout, textColor: Colors.red, endIcon: false, onPress: () {} ),
+              ProfileMenuWidget(title: "Logout", icon: Icons.logout, textColor: Colors.red, endIcon: false, onPress: () {
+                AuthenticationRepository.instance.logout();
+              }, ),
             ],
           ),
         ),

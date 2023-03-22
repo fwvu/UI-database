@@ -96,7 +96,7 @@ class EditProfileScreen extends StatelessWidget {
                               onPressed: () => Get.to(() => const EditProfileScreen()),
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: bpdPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
-                              child: const Text(bpdProfileEdit, style: TextStyle(color: bpdDarkColor),),
+                              child: const Text(bpdProfileUpdate, style: TextStyle(color: bpdDarkColor),),
                             ),
                           ),
                         ],

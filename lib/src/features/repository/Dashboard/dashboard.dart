@@ -1,20 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:uidb/src/constants/colors.dart';
-import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
 import 'package:uidb/src/constants/text_strings.dart';
-import 'package:uidb/src/features/repository/authentication_repository/authentication_repository.dart';
 import 'package:uidb/src/features/repository/profile/profile_screen.dart';
 
 
 class Dashboard extends StatelessWidget {
-  String? email;
-  Dashboard({Key? key, this.email}) : super(key: key);
 
-  //var value = String? email;
+  final String? email;
+
+  const Dashboard({Key? key, this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +32,22 @@ class Dashboard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20.0),
-              Text("Welcome"),
-              Text(email!),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
+              Text(bpdDashboardHeading, style: Theme.of(context).textTheme.headlineMedium,),
+              Text(email!, style: Theme.of(context).textTheme.headlineSmall,),
+              const SizedBox(height: 40.0),
               Center(child: QrImage(
                 data: ("Food For Dirt $email"),
                 backgroundColor: Colors.white,
-                size: 300.0,
+                size: 350.0,
               ),),
-              Text("make this QR image"),
-              SizedBox(height: 20.0),
+              Text(bpdQrImage, style: Theme.of(context).textTheme.bodyMedium,),
+              const SizedBox(height: 40.0),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: (){
-                      AuthenticationRepository.instance.logout();
-                    },
-                    child: Text(bpdLogout.toUpperCase(),)
+                    onPressed: (){},
+                    child: Text(bpdUserStats.toUpperCase(),)
                 ),
               ),
             ],
