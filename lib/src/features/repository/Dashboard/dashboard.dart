@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:uidb/src/constants/colors.dart';
 import 'package:uidb/src/constants/image_strings.dart';
 import 'package:uidb/src/constants/sizes.dart';
@@ -12,7 +12,9 @@ import 'package:uidb/src/features/repository/profile/profile_screen.dart';
 
 class Dashboard extends StatelessWidget {
   String? email;
-  Dashboard({Key? key, required this.email}) : super(key: key);
+  Dashboard({Key? key, this.email}) : super(key: key);
+
+  //var value = String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,11 @@ class Dashboard extends StatelessWidget {
               Text("Welcome"),
               Text(email!),
               SizedBox(height: 20.0),
-              Image(image: AssetImage(bpdSplashImage)),
+              Center(child: QrImage(
+                data: ("Food For Dirt $email"),
+                backgroundColor: Colors.white,
+                size: 300.0,
+              ),),
               Text("make this QR image"),
               SizedBox(height: 20.0),
               SizedBox(

@@ -17,7 +17,7 @@ class EditProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.arrow_left), color: Colors.black,),
+        leading: IconButton(onPressed: () => Get.back(), icon: const Icon(Icons.keyboard_arrow_left), color: Colors.black,),
         title: Text(bpdProfileEdit, style: Theme.of(context).textTheme.headlineSmall),
         centerTitle: true,
         elevation: 0,

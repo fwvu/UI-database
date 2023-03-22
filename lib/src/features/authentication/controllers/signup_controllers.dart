@@ -30,7 +30,7 @@ class SignUpController extends GetxController {
     //phoneAuthentication(user.phoneNo);
     //Get.to(() => const OTPScreen());
     registerUser(user.email, user.password);
-    Get.to(() => Dashboard(email:user.email,));
+    Get.to(() => Dashboard(email:user.email));
   }
 
   void phoneAuthentication(String phoneNo) {

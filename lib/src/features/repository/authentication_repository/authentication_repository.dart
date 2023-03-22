@@ -1,5 +1,3 @@
-// import 'dart:html';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/screens/splash_screen/splash_screen.dart';
