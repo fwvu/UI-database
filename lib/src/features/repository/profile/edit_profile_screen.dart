@@ -32,7 +32,14 @@ class EditProfileScreen extends StatelessWidget {
             builder: (context, snapshot){
               if(snapshot.connectionState == ConnectionState.done){
                 if(snapshot.hasData){
-                  UserModel userData = snapshot.data as UserModel;
+                  UserModel user = snapshot.data as UserModel;
+
+                  final id = (user.id);
+                  final email = TextEditingController(text: user.email);
+                  final password = TextEditingController(text: user.password);
+                  final fullName = TextEditingController(text: user.fullName);
+                  final phoneNo = TextEditingController(text: user.phoneNo);
+
                   return Column(
                     children: [
                       Stack(
@@ -58,7 +65,7 @@ class EditProfileScreen extends StatelessWidget {
                       Form(child: Column(
                         children: [
                           TextFormField(
-                            initialValue: userData.fullName,
+                            controller: fullName,
                             decoration: const InputDecoration(
                               label: Text(bpdFullName),
                               prefixIcon: Icon(Icons.person),
@@ -66,7 +73,7 @@ class EditProfileScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: bpdFormHeight - 20),
                           TextFormField(
-                            initialValue: userData.email,
+                            controller: email,
                             decoration: const InputDecoration(
                               label: Text(bpdEmail),
                               prefixIcon: Icon(Icons.email),
@@ -74,7 +81,7 @@ class EditProfileScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: bpdFormHeight - 20),
                           TextFormField(
-                            initialValue: userData.phoneNo,
+                            controller: phoneNo,
                             decoration: const InputDecoration(
                               label: Text(bpdPhone),
                               prefixIcon: Icon(Icons.phone),
@@ -83,7 +90,7 @@ class EditProfileScreen extends StatelessWidget {
                           const SizedBox(height: bpdFormHeight - 20),
                           TextFormField(
                             obscureText: true,
-                            initialValue: userData.password,
+                            controller: password,
                             decoration: const InputDecoration(
                               label: Text(bpdPassword),
                               prefixIcon: Icon(Icons.password),
@@ -93,7 +100,18 @@ class EditProfileScreen extends StatelessWidget {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () => Get.to(() => const EditProfileScreen()),
+                              //onPressed: () => Get.to(() => const EditProfileScreen()),
+                              onPressed: () async {
+                                final userData = UserModel(
+                                    id: id,
+                                    email: email.text.trim(),
+                                    password: password.text.trim(),
+                                    fullName: fullName.text.trim(),
+                                    phoneNo: phoneNo.text.trim(),
+                                );
+
+                                await controller.updateRecord(userData);
+                              },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: bpdPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
                               child: const Text(bpdProfileUpdate, style: TextStyle(color: bpdDarkColor),),
