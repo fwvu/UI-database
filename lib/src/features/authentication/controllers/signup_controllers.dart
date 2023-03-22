@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/model/user_model.dart';
 import 'package:uidb/src/features/repository/Dashboard/dashboard.dart';
 import 'package:uidb/src/features/repository/user_repository/user_repository.dart';
-
 import '../../repository/authentication_repository/authentication_repository.dart';
 import '../screens/forget_password/forget_password_otp/otp_screen.dart';
+
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -36,4 +36,5 @@ class SignUpController extends GetxController {
   void phoneAuthentication(String phoneNo) {
     AuthenticationRepository.instance.phoneAuthentication(phoneNo);
   }
+
 }

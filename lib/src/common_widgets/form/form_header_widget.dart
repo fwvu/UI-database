@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
+
 class FormHeaderWidget extends StatelessWidget {
-
-
   const FormHeaderWidget({Key? key,
     required this.image,
     required this.title,
@@ -16,6 +15,7 @@ class FormHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final size = MediaQuery.of(context).size;
 
     return Column(

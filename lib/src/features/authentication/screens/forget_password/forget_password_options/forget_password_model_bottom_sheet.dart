@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:uidb/src/features/authentication/screens/forget_password/forget_password_mail/forget_password_mail.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
@@ -27,7 +26,7 @@ class ForgetPasswordScreen {
               subTitle: bpdResetViaEmail,
               onTap: () {
                 Navigator.pop(context);
-                Get.to(() => ForgetPasswordMailScreen());
+                Get.to(() => const ForgetPasswordMailScreen());
                 },
             ),
             const SizedBox(height: 20.0),

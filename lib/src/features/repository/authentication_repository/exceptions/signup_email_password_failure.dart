@@ -4,7 +4,7 @@
 class SignUpWithEmailAndPasswordFailure {
   final String message;
 
-  const SignUpWithEmailAndPasswordFailure ([this.message = "an unknown error has occured"]);
+  const SignUpWithEmailAndPasswordFailure ([this.message = "an unknown error has occurred"]);
 
   factory SignUpWithEmailAndPasswordFailure.code(String code){
     switch(code) {

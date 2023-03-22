@@ -13,4 +13,5 @@ class bpdAnimatePosition {
     this.leftAfter,
     this.rightAfter,
   });
+
 }

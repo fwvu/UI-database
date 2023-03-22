@@ -41,11 +41,11 @@ class WelcomeScreen extends StatelessWidget {
               rightBefore: 0,
             ),
             child: Container(
-              padding: EdgeInsets.all(bpdDefaultSize),
+              padding: const EdgeInsets.all(bpdDefaultSize),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image(image: AssetImage(bpdWelcomeImage), height: height* 0.6,),
+                  Image(image: const AssetImage(bpdWelcomeImage), height: height* 0.6,),
                   Column(
                     children: [
                       Text(bpdWelcomeTitle, style: Theme.of(context).textTheme.displayMedium,),
@@ -58,7 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                         child: OutlinedButton(
                             onPressed: () => Get.to(()=> const LoginScreen()),
                             child: Text(bpdLogin.toUpperCase()))),
-                    SizedBox(width: 10.0,),
+                    const SizedBox(width: 10.0,),
                     Expanded(
                         child: ElevatedButton(
                             onPressed: () => Get.to(() => const SignupScreen()),

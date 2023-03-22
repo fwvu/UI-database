@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:uidb/src/constants/colors.dart';
 
-/* -- Light and Dark Text Themes -- */
 
+/* -- Light and Dark Text Themes -- */
 class bpdTextTheme {
   bpdTextTheme._(); //To avoid creating instances
 
-  /* -- Light Text Theme -- */
+  /* -- Light Theme -- */
   static TextTheme lightTextTheme = TextTheme(
     headlineLarge: GoogleFonts.montserrat(fontSize: 28.0, fontWeight: FontWeight.bold, color: bpdDarkColor,),
     headlineMedium: GoogleFonts.montserrat(fontSize: 24.0, fontWeight: FontWeight.w700, color: bpdDarkColor,),
@@ -19,7 +19,8 @@ class bpdTextTheme {
 
   );
 
-  /* -- Dark Text Theme -- */
+
+  /* -- Dark Theme -- */
   static TextTheme darkTextTheme = TextTheme(
     headlineLarge: GoogleFonts.montserrat(fontSize: 28.0, fontWeight: FontWeight.bold, color: bpdWhiteColor,),
     headlineMedium: GoogleFonts.montserrat(fontSize: 24.0, fontWeight: FontWeight.w700, color: bpdWhiteColor,),

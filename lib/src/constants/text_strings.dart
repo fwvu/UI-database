@@ -57,7 +57,6 @@ const String bpdProfileEdit = "Edit Profile";
 const String bpdProfileMenu = "Settings";
 const String bpdProfileUpdate = "Update profile";
 
-
 // -- Dashboard
 const String bpdDashboardHeading = "Welcome";
 const String bpdQrImage = "Your personal QR code";
