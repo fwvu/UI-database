@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:uidb/src/features/authentication/controllers/signup_controllers.dart';
 import 'package:uidb/src/features/authentication/model/user_model.dart';
+import 'package:uidb/src/features/repository/authentication_repository/authentication_repository.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
@@ -14,6 +15,7 @@ class SignupFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    final auth = Get.put(AuthenticationRepository());
     final controller = Get.put(SignUpController());
     final formkey = GlobalKey<FormState>();
 
@@ -34,6 +36,11 @@ class SignupFormWidget extends StatelessWidget {
             const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               controller: controller.email,
+              validator: (value){
+                if (value == null || value.isEmpty){
+                  return 'Email Required';
+                } else {null;}
+              },
               decoration: const InputDecoration(
                 label: Text(bpdEmail),
                 prefixIcon: Icon(Icons.email),
@@ -67,6 +74,11 @@ class SignupFormWidget extends StatelessWidget {
             TextFormField(
               obscureText: true,
               controller: controller.password,
+              validator: (value){
+                if (value == null || value.isEmpty){
+                  return 'Password Required';
+                } else {null;}
+              },
               decoration: const InputDecoration(
                 label: Text(bpdPassword),
                 prefixIcon: Icon(Icons.password),
@@ -78,11 +90,13 @@ class SignupFormWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (formkey.currentState!.validate()) {
 
                       // email and password signup
                       //SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
+
+                      await auth.createUserWithEmailAndPassword(controller.email.text.trim(), controller.password.text.trim());
 
                       // phone authentication
                       //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());

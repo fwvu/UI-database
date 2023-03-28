@@ -29,12 +29,16 @@ class SignUpController extends GetxController {
     await userRepo.createUser(user);
     //phoneAuthentication(user.phoneNo);
     //Get.to(() => const OTPScreen());
-    registerUser(user.email, user.password);
-    Get.to(() => Dashboard(email:user.email));
+    //registerUser(user.email, user.password);
+    //Get.to(() => Dashboard(email:user.email));
+    Get.to(() => const Dashboard());
   }
 
+  /*
   void phoneAuthentication(String phoneNo) {
     AuthenticationRepository.instance.phoneAuthentication(phoneNo);
   }
+
+   */
 
 }

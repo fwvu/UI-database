@@ -5,10 +5,12 @@ import 'package:uidb/src/features/repository/authentication_repository/authentic
 
 class OtpController extends GetxController {
   static OtpController get instance => Get.find ();
-
+/*
   void verifyOTP(String otp) async {
     var isVerified = await AuthenticationRepository.instance.verifyOTP(otp);
-    isVerified ? Get.offAll(()=> Dashboard(email: '',)) : Get.back();
+    isVerified ? Get.offAll(()=> Dashboard(uid: '',)) : Get.back();
   }
+
+ */
 
 }

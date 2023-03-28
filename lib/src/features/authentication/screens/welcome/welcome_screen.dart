@@ -24,53 +24,55 @@ class WelcomeScreen extends StatelessWidget {
     var brightness = mediaQuery.platformBrightness;
     final isDarkMode = brightness == Brightness.dark;
 
-    return Scaffold(
-      backgroundColor: isDarkMode ? bpdSecondaryColor : bpdPrimaryColor,
-      body: Stack(
-        children: [
-          bpdFadeInAnimation(
-            durationInMs: 1200,
-            animate: bpdAnimatePosition(
-              bottomAfter: 0,
-              bottomBefore: -100,
-              leftBefore: 0,
-              leftAfter: 0,
-              topBefore: 0,
-              topAfter: 0,
-              rightAfter: 0,
-              rightBefore: 0,
-            ),
-            child: Container(
-              padding: const EdgeInsets.all(bpdDefaultSize),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image(image: const AssetImage(bpdWelcomeImage), height: height* 0.6,),
-                  Column(
-                    children: [
-                      Text(bpdWelcomeTitle, style: Theme.of(context).textTheme.displayMedium,),
-                      Text(bpdWelcomeSubTitle, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center,),
-                    ],
-                  ),
-                  Row(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: isDarkMode ? bpdSecondaryColor : bpdPrimaryColor,
+        body: Stack(
+          children: [
+            bpdFadeInAnimation(
+              durationInMs: 1200,
+              animate: bpdAnimatePosition(
+                bottomAfter: 0,
+                bottomBefore: -100,
+                leftBefore: 0,
+                leftAfter: 0,
+                topBefore: 0,
+                topAfter: 0,
+                rightAfter: 0,
+                rightBefore: 0,
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(bpdDefaultSize),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Expanded(
-                        child: OutlinedButton(
-                            onPressed: () => Get.to(()=> const LoginScreen()),
-                            child: Text(bpdLogin.toUpperCase()))),
-                    const SizedBox(width: 10.0,),
-                    Expanded(
-                        child: ElevatedButton(
-                            onPressed: () => Get.to(() => const SignupScreen()),
-                            child: Text(bpdSignup.toUpperCase()))),
+                    Image(image: const AssetImage(bpdWelcomeImage), height: height* 0.6,),
+                    Column(
+                      children: [
+                        Text(bpdWelcomeTitle, style: Theme.of(context).textTheme.displayMedium,),
+                        Text(bpdWelcomeSubTitle, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center,),
+                      ],
+                    ),
+                    Row(
+                    children: [
+                      Expanded(
+                          child: OutlinedButton(
+                              onPressed: () => Get.to(()=> const LoginScreen()),
+                              child: Text(bpdLogin.toUpperCase()))),
+                      const SizedBox(width: 10.0,),
+                      Expanded(
+                          child: ElevatedButton(
+                              onPressed: () => Get.to(() => const SignupScreen()),
+                              child: Text(bpdSignup.toUpperCase()))),
+                    ],
+                    )
                   ],
-                  )
-                ],
+                ),
               ),
             ),
-          ),
-        ],
-      )
+          ],
+        )
+      ),
     );
   }
 }

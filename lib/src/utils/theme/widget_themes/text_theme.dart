@@ -14,7 +14,7 @@ class bpdTextTheme {
     headlineSmall: GoogleFonts.poppins(fontSize: 24.0, fontWeight: FontWeight.w700, color: bpdDarkColor,),
     displayLarge: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.w600, color: bpdDarkColor,),
     displaySmall: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.w600, color: bpdDarkColor,),
-    bodyLarge: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.normal, color: bpdDarkColor,),
+    bodyLarge: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.normal, color: bpdDarkColor,),
     bodyMedium: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.normal, color: bpdDarkColor,),
 
   );
@@ -27,7 +27,7 @@ class bpdTextTheme {
     headlineSmall: GoogleFonts.poppins(fontSize: 24.0, fontWeight: FontWeight.w700, color: bpdWhiteColor,),
     displayLarge: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.w600, color: bpdWhiteColor,),
     displaySmall: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.w600, color: bpdWhiteColor,),
-    bodyLarge: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.normal, color: bpdWhiteColor,),
+    bodyLarge: GoogleFonts.poppins(fontSize: 16.0, fontWeight: FontWeight.normal, color: bpdWhiteColor,),
     bodyMedium: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.normal, color: bpdWhiteColor,),
   );
 

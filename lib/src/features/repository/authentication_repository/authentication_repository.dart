@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:uidb/src/features/authentication/screens/welcome/welcome_screen.dart';
@@ -34,9 +37,66 @@ class AuthenticationRepository extends GetxController {
       Get.offAll(() => const SplashScreen());
     } else {
       print("u suck");
-      Get.offAll(() => Dashboard(email:user.email));
+      Get.offAll(() => Dashboard(uid:user.uid));
     }
   }
+
+
+  Future<void> createUserWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      firebaseUser.value != null
+          ? Get.offAll(() => Dashboard())
+          : Get.to(() => const WelcomeScreen());
+    } on FirebaseAuthException catch (e) {
+      final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
+      //Get.showSnackbar(GetSnackBar(message: e.toString()));
+      //print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      Get.snackbar("FIREBASE AUTH EXCEPTION -", (ex.message),
+        backgroundColor: Colors.redAccent,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: const Text("Account creation failed",
+        style:
+          TextStyle(
+            color: Colors.white
+          ),),
+        //messageText: Text(e.toString(),
+        messageText: Text(ex.message,
+        style:
+          TextStyle(
+            color: Colors.white
+          ),),
+
+      );
+      throw ex;
+    } catch (_) {
+      Get.showSnackbar(GetSnackBar(message: _.toString()));
+      const ex = SignUpWithEmailAndPasswordFailure();
+      print('EXCEPTION - ${ex.message}');
+      throw ex;
+    }
+  }
+
+  Future<void> loginUserWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+    } catch (_) {}
+  }
+
+  Future<void> logout() async => await _auth.signOut();
+
+/*
+  Future<bool> verifyOTP(String otp) async {
+    var credentials = await _auth.signInWithCredential(PhoneAuthProvider.credential(
+        verificationId: this.verificationId.value, smsCode: otp));
+    return credentials.user != null ? true : false;
+  }
+
+
   Future<void> phoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(
         phoneNumber: phoneNo,
@@ -58,38 +118,7 @@ class AuthenticationRepository extends GetxController {
         });
   }
 
-  Future<bool> verifyOTP(String otp) async {
-    var credentials = await _auth.signInWithCredential(PhoneAuthProvider.credential(
-        verificationId: this.verificationId.value, smsCode: otp));
-    return credentials.user != null ? true : false;
-  }
+ */
 
-  Future<void> createUserWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      firebaseUser.value != null
-          ? Get.offAll(() => Dashboard(email:email))
-          : Get.to(() => const WelcomeScreen());
-    } on FirebaseAuthException catch (e) {
-      final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
-      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
-      throw ex;
-    } catch (_) {
-      const ex = SignUpWithEmailAndPasswordFailure();
-      print('EXCEPTION - ${ex.message}');
-      throw ex;
-    }
-  }
 
-  Future<void> loginUserWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-    } catch (_) {}
-  }
-
-  Future<void> logout() async => await _auth.signOut();
 }
