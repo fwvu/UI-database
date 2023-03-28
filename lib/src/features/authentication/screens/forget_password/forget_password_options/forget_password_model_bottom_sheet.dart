@@ -30,12 +30,6 @@ class ForgetPasswordScreen {
                 },
             ),
             const SizedBox(height: 20.0),
-            ForgetPasswordBtnWidget(
-              btnIcon: Icons.mobile_friendly_rounded,
-              title: bpdPhone,
-              subTitle: bpdResetViaPhone,
-              onTap: () {},
-            )
           ],
         ),
       ),

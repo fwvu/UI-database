@@ -1,11 +1,10 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:uidb/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:uidb/src/features/repository/authentication_repository/exceptions/signup_email_password_failure.dart';
+import '../../../constants/colors.dart';
 import '../Dashboard/dashboard.dart';
 
 class AuthenticationRepository extends GetxController {
@@ -14,7 +13,6 @@ class AuthenticationRepository extends GetxController {
   //variables
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
-  var verificationId = ''.obs;
 
   @override
   void onReady() {
@@ -24,19 +22,11 @@ class AuthenticationRepository extends GetxController {
     ever(firebaseUser, _setInitialScreen);
   }
 
-  /* _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const WelcomeScreen())
-        //? Get.offAll(() => const SplashScreen())
-        : Get.offAll(() => const Dashboard());
-  }*/
 
   _setInitialScreen(User? user) {
     if (user == null) {
-      print("idiot");
       Get.offAll(() => const SplashScreen());
     } else {
-      print("u suck");
       Get.offAll(() => Dashboard(uid:user.uid));
     }
   }
@@ -48,27 +38,17 @@ class AuthenticationRepository extends GetxController {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       firebaseUser.value != null
-          ? Get.offAll(() => Dashboard())
+          ? Get.offAll(() => const Dashboard())
           : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
-      //Get.showSnackbar(GetSnackBar(message: e.toString()));
-      //print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       Get.snackbar("FIREBASE AUTH EXCEPTION -", (ex.message),
         backgroundColor: Colors.redAccent,
         snackPosition: SnackPosition.BOTTOM,
         titleText: const Text("Account creation failed",
-        style:
-          TextStyle(
-            color: Colors.white
-          ),),
-        //messageText: Text(e.toString(),
+        style: TextStyle(color: bpdWhiteColor),),
         messageText: Text(ex.message,
-        style:
-          TextStyle(
-            color: Colors.white
-          ),),
-
+        style: const TextStyle(color: bpdWhiteColor),),
       );
       throw ex;
     } catch (_) {
@@ -79,6 +59,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+
   Future<void> loginUserWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -87,38 +68,7 @@ class AuthenticationRepository extends GetxController {
     } catch (_) {}
   }
 
+
   Future<void> logout() async => await _auth.signOut();
-
-/*
-  Future<bool> verifyOTP(String otp) async {
-    var credentials = await _auth.signInWithCredential(PhoneAuthProvider.credential(
-        verificationId: this.verificationId.value, smsCode: otp));
-    return credentials.user != null ? true : false;
-  }
-
-
-  Future<void> phoneAuthentication(String phoneNo) async {
-    await _auth.verifyPhoneNumber(
-        phoneNumber: phoneNo,
-        verificationCompleted: (credential) async {
-          await _auth.signInWithCredential(credential);
-        },
-        verificationFailed: (e) {
-          if (e.code == 'invalid phone number') {
-            Get.snackbar('Error', 'The Provided Phone Number is invalid');
-          } else {
-            Get.snackbar('Error', 'Something went wrong, try again');
-          }
-        },
-        codeSent: (verificationId, resendToken) {
-          this.verificationId.value = verificationId;
-        },
-        codeAutoRetrievalTimeout: (verificationId) {
-          this.verificationId.value = verificationId;
-        });
-  }
-
- */
-
 
 }

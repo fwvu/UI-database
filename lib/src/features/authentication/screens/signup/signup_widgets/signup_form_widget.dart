@@ -47,29 +47,25 @@ class SignupFormWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: bpdFormHeight - 20),
-            TextFormField(
+           /* TextFormField(
               controller: controller.phoneNo,
               decoration: const InputDecoration(
                 label: Text(bpdPhone),
                 prefixIcon: Icon(Icons.phone),
               ),
-            ),
-
-          /*IntlPhoneField(
+            ),                    */
+          IntlPhoneField(
               controller: controller.phoneNo,
               disableLengthCheck: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Phone Number',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(),
                 ),
               ),
               initialCountryCode: 'AU',
-              onChanged: (phone) {
-                print(phone.completeNumber);
-              },
-            ), */
-
+              //onChanged: (phone) {print(phone.completeNumber);},
+            ),
             const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               obscureText: true,
@@ -90,30 +86,23 @@ class SignupFormWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () async {
-                    if (formkey.currentState!.validate()) {
+                onPressed: () async {
+                  if (formkey.currentState!.validate()) {
+                    // email and password signup
+                    await auth.createUserWithEmailAndPassword(controller.email.text.trim(), controller.password.text.trim());
 
-                      // email and password signup
-                      //SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
-
-                      await auth.createUserWithEmailAndPassword(controller.email.text.trim(), controller.password.text.trim());
-
-                      // phone authentication
-                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
-
-                      // Get User info and pass it to controller to place in firestore
-                      final user = UserModel(
-                        email: controller.email.text.trim(),
-                        password: controller.password.text.trim(),
-                        fullName: controller.fullName.text.trim(),
-                        phoneNo: controller.phoneNo.text.trim(),
-                      );
-                      SignUpController.instance.createUser(user);
-                    }
-                  },
-                  child: Text(
-                    bpdSignup.toUpperCase(),
-                  )),
+                    // Get User info and pass it to controller to place in firestore
+                    final user = UserModel(
+                      email: controller.email.text.trim(),
+                      password: controller.password.text.trim(),
+                      fullName: controller.fullName.text.trim(),
+                      phoneNo: controller.phoneNo.text.trim(),
+                    );
+                    SignUpController.instance.createUser(user);
+                  }
+                },
+                child: Text(bpdSignup.toUpperCase()),
+              ),
             ),
           ],
         ),
