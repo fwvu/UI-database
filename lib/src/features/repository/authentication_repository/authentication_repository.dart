@@ -48,6 +48,7 @@ class AuthenticationRepository extends GetxController {
         titleText: const Text("Account creation failed",
         style: TextStyle(color: bpdWhiteColor),),
         messageText: Text(ex.message,
+          //messageText: Text(e.toString(),
         style: const TextStyle(color: bpdWhiteColor),),
       );
       throw ex;
@@ -65,6 +66,14 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
+      Get.snackbar("FIREBASE AUTH EXCEPTION", "Login",
+        backgroundColor: Colors.redAccent,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: const Text("Login Failed",
+          style: TextStyle(color: bpdWhiteColor),),
+        messageText: Text(e.toString(),
+          style: const TextStyle(color: bpdWhiteColor),),
+      );
     } catch (_) {}
   }
 

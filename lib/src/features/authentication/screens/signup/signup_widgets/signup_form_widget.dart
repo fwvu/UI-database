@@ -34,6 +34,24 @@ class SignupFormWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: bpdFormHeight - 20),
+            /* TextFormField(
+              controller: controller.phoneNo,
+              decoration: const InputDecoration(
+                label: Text(bpdPhone),
+                prefixIcon: Icon(Icons.phone),
+              ),
+            ),                    */
+            IntlPhoneField(
+              controller: controller.phoneNo,
+              disableLengthCheck: true,
+              decoration: InputDecoration(
+                labelText: 'Phone Number',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
+              ),
+              initialCountryCode: 'AU',
+              //onChanged: (phone) {print(phone.completeNumber);},
+            ),
+            const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
               controller: controller.email,
               validator: (value){
@@ -45,26 +63,6 @@ class SignupFormWidget extends StatelessWidget {
                 label: Text(bpdEmail),
                 prefixIcon: Icon(Icons.email),
               ),
-            ),
-            const SizedBox(height: bpdFormHeight - 20),
-           /* TextFormField(
-              controller: controller.phoneNo,
-              decoration: const InputDecoration(
-                label: Text(bpdPhone),
-                prefixIcon: Icon(Icons.phone),
-              ),
-            ),                    */
-          IntlPhoneField(
-              controller: controller.phoneNo,
-              disableLengthCheck: true,
-              decoration: const InputDecoration(
-                labelText: 'Phone Number',
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(),
-                ),
-              ),
-              initialCountryCode: 'AU',
-              //onChanged: (phone) {print(phone.completeNumber);},
             ),
             const SizedBox(height: bpdFormHeight - 20),
             TextFormField(
