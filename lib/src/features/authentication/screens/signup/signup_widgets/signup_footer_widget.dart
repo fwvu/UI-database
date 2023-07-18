@@ -5,9 +5,7 @@ import '../../../../../constants/text_strings.dart';
 
 
 class SignupFooterWidget extends StatelessWidget {
-  const SignupFooterWidget({
-    super.key,
-  });
+  const SignupFooterWidget({super.key,});
 
   @override
   Widget build(BuildContext context) {

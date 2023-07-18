@@ -8,9 +8,7 @@ import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
 class SignupFormWidget extends StatelessWidget {
-  const SignupFormWidget({
-    super.key,
-  });
+  const SignupFormWidget({super.key,});
 
   @override
   Widget build(BuildContext context) {
