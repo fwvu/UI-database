@@ -60,7 +60,7 @@ class Dashboard extends StatelessWidget {
                       const SizedBox(height: 40.0),
                       Center(
                         child: QrImage(
-                          data: ("Food For Dirt $uid"),
+                          data: ("Food_For_Dirt $uid"),
                           backgroundColor: Colors.white,
                           size: 350.0,
                         ),
