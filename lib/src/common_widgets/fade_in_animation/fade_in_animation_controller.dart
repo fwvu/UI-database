@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:uidb/src/features/authentication/screens/welcome/welcome_screen.dart';
 
+
 class FadeInAnimationController extends GetxController{
   static FadeInAnimationController get find => Get.find();
 
   RxBool animate = false.obs;
 
-  // -- Splash Screen animation controller
   Future startSplashAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
     animate.value = true;
@@ -16,11 +16,9 @@ class FadeInAnimationController extends GetxController{
     Get.to(() => const WelcomeScreen());
   }
 
-  // -- Welcome Screen animation controller
   Future startAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
     animate.value = true;
   }
+
 }
-
-

@@ -57,21 +57,19 @@ class Dashboard extends StatelessWidget {
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       Text(user.fullName, style: Theme.of(context).textTheme.headlineSmall,),
-                      const SizedBox(height: 20.0),
-                      Text(
-                        bpdQrImage,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 40.0),
                       Center(
                         child: QrImage(
-                          data: ("Food_For_Dirt $uid"),
+                          data: ("Food For Dirt $uid"),
                           backgroundColor: Colors.white,
                           size: 350.0,
                         ),
                       ),
-
-                      const SizedBox(height: 30.0),
+                      Text(
+                        bpdQrImage,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      const SizedBox(height: 40.0),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(

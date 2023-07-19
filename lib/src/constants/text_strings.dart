@@ -16,7 +16,7 @@ const String bpdWelcomeSubTitle = "Bin it";
 
 // -- Signup Screen Text
 const String bpdSignupTitle = "Create an Account";
-const String bpdSignupSubTitle = "Signup now!";
+const String bpdSignupSubTitle = "Do it Idiot !";
 
 // -- Login Screen Text
 const String bpdLoginTitle ="Login";

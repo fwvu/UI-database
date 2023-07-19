@@ -45,7 +45,7 @@ class SplashScreen extends StatelessWidget {
             ),
             bpdFadeInAnimation(
               durationInMs: 1600,
-              animate: bpdAnimatePosition(bottomBefore: 0, bottomAfter: 60, rightBefore: bpdDefaultSize, rightAfter: bpdDefaultSize,),
+              animate: bpdAnimatePosition(bottomBefore:  0, bottomAfter: 60, rightBefore: bpdDefaultSize, rightAfter: bpdDefaultSize,),
               child: Container(
                 width: bpdSplashContainerSize,
                 height: bpdSplashContainerSize,
